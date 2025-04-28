@@ -2,8 +2,6 @@ import UserModel from "@/modal/user";
 import { getServerSession } from "next-auth/next";
 import dbConnect from "@/lib/dbConnect";
 import { User } from "next-auth";
-import { Message } from "@/modal/user";
-import { NextRequest } from "next/server";
 import { authOptions } from "../../auth/[...nextauth]/options";
 
 export async function DELETE(

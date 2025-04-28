@@ -17,7 +17,7 @@ export async function GET(request: Request) {
     const result = usernameQuerySchema.safeParse(queryParams);
     console.log(result); //TODO:remove
     if (!result.success) {
-      const usernameErrors = result.error.format().username?._errors || [];
+      // const usernameErrors = result.error.format().username?._errors || [];
       return Response.json(
         {
           success: false,

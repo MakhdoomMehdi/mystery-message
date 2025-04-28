@@ -1,4 +1,3 @@
-import { connect } from "http2";
 import mongoose from "mongoose";
 
 type ConnectionObject = {
@@ -17,7 +16,7 @@ async function dbConnect(): Promise<void> {
     connection.isConnected = db.connections[0].readyState;
     console.log("Database is connected");
   } catch (error) {
-    console.log("Database connection failed");
+    console.log("Database connection failed", error);
     process.exit(1);
   }
 }

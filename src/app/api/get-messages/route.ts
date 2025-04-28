@@ -33,10 +33,10 @@ export async function GET(request: Request) {
       return Response.json(
         {
           success: false,
-          message: "User not found",
+          message: "User has no messages",
         },
         {
-          status: 401,
+          status: 200,
         }
       );
     }
