@@ -21,7 +21,9 @@ export async function POST(request: Request) {
     );
   }
   const userId = user._id;
-  const { acceptMessages } = await request.json();
+  const body = await request.json();
+  const { acceptMessages } = body;
+
   try {
     const updatedUser = await UserModel.findByIdAndUpdate(
       userId,
