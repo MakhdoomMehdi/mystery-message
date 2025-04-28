@@ -59,6 +59,9 @@ const Page = () => {
         }
       }
     };
+
+    // Call the function to execute it
+    checkUsernameUnique();
   }, [username]);
 
   const onSubmit = async (data: z.infer<typeof signupSchema>) => {
@@ -72,8 +75,9 @@ const Page = () => {
       console.error("Error during sign-up:", error);
       const axiosError = error as AxiosError<ApiResponse>;
       // Default error message
-      let errorMessage = axiosError.response?.data.message;
-      ("There was a problem with your sign-up. Please try again.");
+      let errorMessage =
+        axiosError.response?.data.message ||
+        "There was a problem with your sign-up. Please try again.";
       toast(`Sign up failed: ${errorMessage}`);
       setIsSubmitting(false);
     }
